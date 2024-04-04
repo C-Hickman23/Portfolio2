@@ -1,21 +1,82 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
   text-align: center;
+  width: 100%;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
+  height: 4em;
+  padding: 0.5em;
   will-change: filter;
   transition: filter 300ms;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.hero {
+  height: 75vh; 
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
+main img {
+  height: 50vh;
+}
+
+div{
+  color: azure;
+  opacity: 0.99;
+}
+
+main {
+  margin: 0 auto;
+  opacity: 0.99;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+section {
+  background-color: #404040;
+  margin: 2vh;
+  padding: 1vh;
+  border-radius: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #404040;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 0.5rem 2rem;
+}
+
+body {
+  padding-top: 70px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  padding: 0.5em;
+  padding-right: 2.5em;
+}
+
+#contact-info a {
+  font-size: 1.5em;
+  margin-left: 1vw;
+  margin-right: 1vw;
 }
 
 @keyframes logo-spin {

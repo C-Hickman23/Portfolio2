@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadAll } from "@tsparticles/all";
 import logo from './assets/logo.png';
+import portrait from './assets/Portrait.jpg';
 import './App.css';
 
 function App() {
@@ -89,48 +90,55 @@ function App() {
       [],
     );
 
-    if (init) {
-      return (
-        <div>
-          <Particles
-            id="tsparticles"
-            particlesLoaded={particlesLoaded}
-            options={options}
-          />
+    if (!init) return <></>;
 
-          <header>
-            <img src={logo} class="logo" alt="logo"/>
-            <h1>Cardon Hickman</h1>
-          </header>
+    return (
+      <div>
+        <Particles
+          id="tsparticles"
+          particlesLoaded={particlesLoaded}
+          options={options}
+        />
 
-          <nav>
-            <a href="#About-Me">About Me</a>
-            <a href="#Projects">Projects</a>
-            <a href="#Contacts">Contact Info</a>
-          </nav>
-        </div>
-      );
-    }
-  
-    return <></>;
+      <header>
+        <img src={logo} className="logo" alt="logo" />
+        <nav>
+          <a href="#about-me">About Me</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact-info">Contact Me</a>
+        </nav>
+      </header>
 
-  // return (
-  //   <>
-  //   <div>
+      <div class="hero"></div>
 
-  //     <header>
-  //       <img src={logo} class="logo" alt="logo"/>
-  //       <h1>Cardon Hickman</h1>
-  //     </header>
+      <main>
+        <section id="about-me">
+          <h2>About Me</h2>
+          <div class="row">
+            <img src={portrait}></img>
+            <p>Introduction about myself, my skills, experience, and what I'm passionate about.</p>
+          </div>
+        </section>
 
-  //     <nav>
-  //       <a href="#About-Me">About Me</a>
-  //       <a href="#Projects">Projects</a>
-  //       <a href="#Contacts">Contact Info</a>
-  //     </nav>
-  //     </div>
-  //   </>
-  // )
+        <section id="projects">
+          <h2>Projects</h2>
+          <div className="project-list">
+            {/* Map through your projects here */}
+            <article className="project">
+              <h3>Project Title</h3>
+              <p>Project Description. Technologies used and the role I played in its development.</p>
+            </article>
+            {/* Repeat for other projects */}
+          </div>
+        </section>
+
+        <section id="contact-info">
+          <h2>Contact Me</h2>
+          <a href="https://github.com/C-Hickman23">Github</a> <a href="https://www.linkedin.com/in/cardon-hickman-b7491727a/">LinkedIn</a>
+        </section>
+      </main>
+    </div>
+  );
 }
 
 export default App
