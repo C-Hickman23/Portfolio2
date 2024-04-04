@@ -24,7 +24,7 @@ dist-ssr
 *.sw?
 
 node_modules/
-package-lock
+package-lock.json
 .cache/
 dist/
 .env
