@@ -117,12 +117,13 @@ function App() {
           <div class="row">
             <img src={portrait}></img>
             <p>My name is Cardon James Hickman, born in 2004 I am currently 20 years old. 
-              I grew up with 3 siblings me being the 3rd oldest and was always handy with technology as a kid.
-              In middle school I got into programming and robotics aswell as the band program which I kept up with until high school.
-              <br></br>
-              After graduating high school in 2023 I decide to complete a full stack web development bootcamp and also currently enrolled in Salt Lake Community College.
-              I have taken a decent amount of professional education for programming but my ultimate goal and what I'm currently working towards is a degree in Mechanical Engineering to go into the field of robotics.
-              For programming I have experience in Java, C++, Javascript, HTML, CSS, JSX, SQL, MERN Stacks, SQL, MongoDB and more.
+              Growing up, I had three siblings, and I was always handy with technology.
+              In middle school, I got into programming and robotics, and I also joined the band program, which I continued until high school.
+              During high school, I completed AP Physics 1 & 2, AP Computer Science A, and earned my FAA Remote Pilot License.
+              <br></br><br></br>
+              After graduating high school in 2023, I decided to complete a full-stack web development bootcamp and am currently enrolled at Salt Lake Community College.
+              I have taken professional courses in programming, but my ultimate goal is to earn a degree in Mechanical Engineering to enter the field of robotics.
+              I have experience in programming languages and technologies including Java, C++, JavaScript, HTML, CSS, JSX, SQL, MERN stack, MongoDB, and more.
               </p>
           </div>
         </section>
