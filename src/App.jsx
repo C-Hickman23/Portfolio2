@@ -4,6 +4,8 @@ import { loadAll } from "@tsparticles/all";
 import logo from './assets/logo.png';
 import portrait from './assets/Portrait.jpg';
 import './App.css';
+import Carousel from '@brainhubeu/react-carousel';
+import '@brainhubeu/react-carousel/lib/style.css';
 
 function App() {
 
@@ -132,15 +134,24 @@ function App() {
           <h2>Projects</h2>
           <div className="project-list">
             <article className="project">
-              <h3>Project Title</h3>
-              <p>Project Description. Technologies used and the role I played in its development.</p>
+              <Carousel plugins={['arrows']}>
+                <div class = "project-div">
+                  <img src={portrait} />
+                  <h3>Title</h3>
+                </div>
+                <div>
+                  <img src={portrait} />
+                  <h3>Title2</h3>
+                </div>
+              </Carousel>
             </article>
           </div>
         </section>
 
         <section id="contact-info">
           <h2>Contact Me</h2>
-          <a href="https://github.com/C-Hickman23">Github</a> <a href="https://www.linkedin.com/in/cardon-hickman-b7491727a/">LinkedIn</a>
+          <button size="lg" href="https://github.com/C-Hickman23">Github</button>
+          <button href="https://www.linkedin.com/in/cardon-hickman-b7491727a/">LinkedIn</button>
         </section>
       </main>
     </div>
