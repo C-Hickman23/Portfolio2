@@ -4,6 +4,20 @@ import { loadAll } from "@tsparticles/all";
 import logo from './assets/logo.png';
 import portrait from './assets/Portrait.jpg';
 import './App.css';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+const projectSliderSettings = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  variableWidthvariableWidth: true,
+  centerMode: true,
+  className: "project-list"
+};
 
 function App() {
 
@@ -130,22 +144,20 @@ function App() {
 
         <section id="projects">
           <h2>Projects</h2>
-          <div className="project-list">
-            <article className="project">
-            
-              {/* <Carousel plugins={['arrows']}>
-                <div class = "project-div">
-                  <img src={portrait} />
-                  <h3>Title</h3>
-                </div>
-                <div>
-                  <img src={portrait} />
-                  <h3>Title2</h3>
-                </div>
-              </Carousel> */}
-
-            </article>
-          </div>
+          <Slider {...projectSliderSettings}>
+            <div class="project-div">
+              <img src="https://github.com/C-Hickman23/Musk-Vs.-Zuck/raw/main/assets/mvz.png"></img>
+              <h3>1</h3>
+            </div>
+            <div class="project-div">
+              <img src="https://github.com/C-Hickman23/Musk-Vs.-Zuck/raw/main/assets/mvz.png"></img>
+              <h3>2</h3>
+            </div>
+            <div class="project-div">
+              <img src="https://github.com/C-Hickman23/Musk-Vs.-Zuck/raw/main/assets/mvz.png"></img>
+              <h3>3</h3>
+            </div>
+          </Slider>
         </section>
 
         <section id="contact-info">
