@@ -4,8 +4,6 @@ import { loadAll } from "@tsparticles/all";
 import logo from './assets/logo.png';
 import portrait from './assets/Portrait.jpg';
 import './App.css';
-import Carousel from '@brainhubeu/react-carousel';
-import '@brainhubeu/react-carousel/lib/style.css';
 
 function App() {
 
@@ -134,7 +132,8 @@ function App() {
           <h2>Projects</h2>
           <div className="project-list">
             <article className="project">
-              <Carousel plugins={['arrows']}>
+            
+              {/* <Carousel plugins={['arrows']}>
                 <div class = "project-div">
                   <img src={portrait} />
                   <h3>Title</h3>
@@ -143,7 +142,8 @@ function App() {
                   <img src={portrait} />
                   <h3>Title2</h3>
                 </div>
-              </Carousel>
+              </Carousel> */}
+
             </article>
           </div>
         </section>
