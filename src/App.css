@@ -51,10 +51,6 @@
   border-radius: 20px;
 }
 
-main img {
-  height: 50vh;
-}
-
 div{
   color: azure;
   opacity: 0.99;
@@ -150,4 +146,15 @@ button{
 #about-me  p {
   font-size: 1.35rem;
   text-align: left;
+  max-width: 63%;
+}
+
+#about-me .row{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#about-me img {
+  height: 60vh;
+  max-width: 90%;
 }
