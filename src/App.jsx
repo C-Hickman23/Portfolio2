@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadAll } from "@tsparticles/all";
 import logo from './assets/logo.png';
@@ -7,6 +7,7 @@ import './App.css';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import arrow from "./assets/Arrow.png";
 
 const projectSliderSettings = {
   dots: false,
@@ -16,7 +17,8 @@ const projectSliderSettings = {
   slidesToScroll: 1,
   variableWidth: true,
   centerMode: true,
-  className: "project-list"
+  className: "project-list",
+  arrows: false
 };
 
 // 0: Name 1: img link 2: repo/deploy link
@@ -34,6 +36,7 @@ export function updateProjects() {
 }
 
 function App() {
+  let sliderRef = useRef(null);
 
   const [ init, setInit ] = useState(false);
     useEffect(() => {
@@ -158,15 +161,23 @@ function App() {
 
         <section id="projects">
           <h2>Projects</h2>
-          <Slider {...projectSliderSettings}>
-            {updateProjects()}
-          </Slider>
+          <div className="slider-container">
+            <button class="slider-button" onClick={() => sliderRef.slickPrev()}>
+              <img src={arrow}></img>
+            </button>
+            <Slider ref={slider => {sliderRef = slider;}} {...projectSliderSettings}>
+              {updateProjects()}
+            </Slider>
+            <button class="slider-button" onClick={() => sliderRef.slickNext()}>
+              <img src={arrow} class="flip"></img>
+            </button>
+          </div>
         </section>
 
         <section id="contact-info">
           <h2>Contact Me</h2>
-          <button size="lg" href="https://github.com/C-Hickman23">Github</button>
-          <button href="https://www.linkedin.com/in/cardon-hickman-b7491727a/">LinkedIn</button>
+          <button size="lg" onClick={() => window.open("https://github.com/C-Hickman23", "_blank")}>Github</button>
+          <button onClick={() => window.open("https://www.linkedin.com/in/cardon-hickman-b7491727a/", "_blank")}>LinkedIn</button>
         </section>
       </main>
     </div>
