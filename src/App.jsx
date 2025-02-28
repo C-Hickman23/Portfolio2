@@ -14,10 +14,24 @@ const projectSliderSettings = {
   speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
-  variableWidthvariableWidth: true,
+  variableWidth: true,
   centerMode: true,
   className: "project-list"
 };
+
+// 0: Name 1: img link 2: repo/deploy link
+var projectList = [["Demo Social Network API", "https://github.com/C-Hickman23/Social-Network-Api/raw/main/image.png", "https://github.com/C-Hickman23/Social-Network-Api"],
+                   ["Demo 5 Day Forecast", "https://github.com/C-Hickman23/5-Day-Forecast-Assignment/raw/main/image.png", "https://c-hickman23.github.io/5-Day-Forecast-Assignment/"]];
+
+export function updateProjects() {
+  let projectDivs = projectList.map(project =>  
+    <div class="project-div">
+      <img src={project.at(1)}></img>
+      <a href={project.at(2)} target="_blank">{project.at(0)}</a>
+    </div>
+  );
+  return projectDivs;
+}
 
 function App() {
 
@@ -145,18 +159,7 @@ function App() {
         <section id="projects">
           <h2>Projects</h2>
           <Slider {...projectSliderSettings}>
-            <div class="project-div">
-              <img src="https://github.com/C-Hickman23/Musk-Vs.-Zuck/raw/main/assets/mvz.png"></img>
-              <h3>1</h3>
-            </div>
-            <div class="project-div">
-              <img src="https://github.com/C-Hickman23/Musk-Vs.-Zuck/raw/main/assets/mvz.png"></img>
-              <h3>2</h3>
-            </div>
-            <div class="project-div">
-              <img src="https://github.com/C-Hickman23/Musk-Vs.-Zuck/raw/main/assets/mvz.png"></img>
-              <h3>3</h3>
-            </div>
+            {updateProjects()}
           </Slider>
         </section>
 
