@@ -21,6 +21,17 @@ const projectSliderSettings = {
   arrows: false
 };
 
+const gallerySliderSettings = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  centerMode: true,
+  centerPadding: '0px',
+  slidesToShow: 5,
+  slidesToScroll: 1,
+  arrows: false
+};
+
 // 0: Name 1: img link 2: repo/deploy link
 var projectList = [["Demo Social Network API", "https://github.com/C-Hickman23/Social-Network-Api/raw/main/image.png", "https://github.com/C-Hickman23/Social-Network-Api"],
                    ["Demo 5 Day Forecast", "https://github.com/C-Hickman23/5-Day-Forecast-Assignment/raw/main/image.png", "https://c-hickman23.github.io/5-Day-Forecast-Assignment/"]];
@@ -35,10 +46,29 @@ export function updateProjects() {
   return projectDivs;
 }
 
-function App() {
-  let sliderRef = useRef(null);
+function updateGallery() {
+  const images = import.meta.glob(['./assets/gallery/*.jpeg', './assets/gallery/*.jpg'], { eager: true });
+  const gallery = Object.values(images).map(mod => mod.default);
+  console.log(gallery);
 
-  const [ init, setInit ] = useState(false);
+  return gallery.map((url, index) => (
+    <img key={index} src={url} alt={`gallery image ${index}`} />
+  ));
+}
+
+function App() {
+    let projectSliderRef = useRef(null);
+    let gallerySliderRef = useRef(null);
+    let today = new Date();
+    let age = 0;
+    if(today.getDate() >= 9 && today.getMonth() >= 8){
+      age = today.getFullYear() - 2004;
+    } else {
+      age = today.getFullYear() - 2005
+    }
+
+    const [ init, setInit ] = useState(false);
+
     useEffect(() => {
         initParticlesEngine(async (engine) => {
             await loadAll(engine);
@@ -132,7 +162,7 @@ function App() {
         />
 
       <header>
-        <img src={logo} className="logo" alt="logo" />
+        <img src={logo} class="logo" alt="logo" />
         <nav>
           <a href="#about-me">About Me</a>
           <a href="#projects">Projects</a>
@@ -147,7 +177,7 @@ function App() {
           <h2>About Me</h2>
           <div class="row">
             <img src={portrait}></img>
-            <p>My name is Cardon James Hickman, born in 2004 I am currently 20 years old. 
+            <p>My name is Cardon James Hickman, born in 2004 I am currently {age} years old. 
               Growing up, I had three siblings, and I was always handy with technology.
               In middle school, I got into programming and robotics, and I also joined the band program, which I continued until high school.
               During high school, I completed AP Physics 1 & 2, AP Computer Science A, and earned my FAA Remote Pilot License.
@@ -162,13 +192,31 @@ function App() {
         <section id="projects">
           <h2>Projects</h2>
           <div className="slider-container">
-            <button class="slider-button" onClick={() => sliderRef.slickPrev()}>
+            <button class="slider-button" onClick={() => projectSliderRef.slickPrev()}>
               <img src={arrow}></img>
             </button>
-            <Slider ref={slider => {sliderRef = slider;}} {...projectSliderSettings}>
+            <Slider ref={slider => {projectSliderRef = slider;}} {...projectSliderSettings}>
               {updateProjects()}
             </Slider>
-            <button class="slider-button" onClick={() => sliderRef.slickNext()}>
+            <button class="slider-button" onClick={() => projectSliderRef.slickNext()}>
+              <img src={arrow} class="flip"></img>
+            </button>
+          </div>
+        </section>
+
+        <section id="gallery">
+          <h2>Gallery</h2>
+          <div className="slider-container">
+            <button class="slider-button" onClick={() => gallerySliderRef.slickPrev()}>
+              <img src={arrow}></img>
+            </button>
+            <Slider ref={slider => {gallerySliderRef = slider;}} {...gallerySliderSettings}>
+            {/* {galleryImages.map((img, index) => (
+              <img key={index} src={img} />
+            ))} */}
+            {updateGallery()}
+            </Slider>
+            <button class="slider-button" onClick={() => gallerySliderRef.slickNext()}>
               <img src={arrow} class="flip"></img>
             </button>
           </div>
@@ -176,7 +224,7 @@ function App() {
 
         <section id="contact-info">
           <h2>Contact Me</h2>
-          <button size="lg" onClick={() => window.open("https://github.com/C-Hickman23", "_blank")}>Github</button>
+          <button onClick={() => window.open("https://github.com/C-Hickman23", "_blank")}>Github</button>
           <button onClick={() => window.open("https://www.linkedin.com/in/cardon-hickman-b7491727a/", "_blank")}>LinkedIn</button>
         </section>
       </main>
