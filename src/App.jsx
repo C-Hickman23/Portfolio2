@@ -214,7 +214,7 @@ function App() {
             <Slider ref={slider => {gallerySliderRef = slider;}} {...gallerySliderSettings}>
             {/* {galleryImages.map((img, index) => (
               <img key={index} src={img} />
-            ))} */}
+            ))}
             {updateGallery()}
             </Slider>
             <button class="slider-button" onClick={() => gallerySliderRef.slickNext()}>
