@@ -204,7 +204,8 @@ function App() {
           </div>
         </section>
 
-        <section id="gallery">
+        {/* not ready yet */}
+        {/* <section id="gallery">
           <h2>Gallery</h2>
           <div className="slider-container">
             <button class="slider-button" onClick={() => gallerySliderRef.slickPrev()}>
@@ -220,7 +221,8 @@ function App() {
               <img src={arrow} class="flip"></img>
             </button>
           </div>
-        </section>
+        </section> */}
+
 
         <section id="contact-info">
           <h2>Contact Me</h2>
